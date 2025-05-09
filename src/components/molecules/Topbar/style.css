@@ -1,0 +1,17 @@
+@import '../../../index.css';
+
+.topbar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 1rem;
+  gap: 8px;
+
+  &_action {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+  }
+}
