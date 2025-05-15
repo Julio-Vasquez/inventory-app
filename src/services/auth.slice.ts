@@ -30,7 +30,7 @@ export const AuthSlice = createSlice({
       token: payload.token,
       message: payload.message,
     }),
-    logout: state => ({ ...state, ...initialState }),
+    logout: () => ({ ...initialState, authentication: false }),
   },
 })
 

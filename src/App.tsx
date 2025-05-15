@@ -1,20 +1,12 @@
 import { RouterProvider } from 'react-router'
 
-import DashboardLayout from './layout/DashboardLayout'
+import { appRouter } from './routes'
+import AppProvider from './providers'
 
-import { useAuth } from './hooks/useAuth'
-import { privateRouter, publicRouter } from './routes'
-
-const App = () => {
-  const { isAuth } = useAuth()
-
-  return !isAuth ? (
-    <RouterProvider router={publicRouter} />
-  ) : (
-    <DashboardLayout>
-      <RouterProvider router={privateRouter} />
-    </DashboardLayout>
-  )
-}
+const App = () => (
+  <AppProvider>
+    <RouterProvider router={appRouter} />
+  </AppProvider>
+)
 
 export default App
