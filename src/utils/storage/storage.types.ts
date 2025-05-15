@@ -1,6 +1,7 @@
+export type TypeStorage = 'sessionStorage' | 'localStorage'
+
 export type Key = {
   key?: string
-  type?: 'sessionStorage' | 'localStorage'
 }
 
 export type Payload<T> = {

@@ -1,11 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-import { ValidateToken, GetToken } from '../utils/storage'
+import { authStore } from '../utils/storage'
 import { AUTH } from '../utils/constants/redux.constant'
 import type { loginSuccessType, State } from './auth.types'
 
 export const initialState: State = {
-  authentication: ValidateToken(GetToken()), //verification token
+  authentication: authStore.isTokenValid(authStore.getStoredToken()),
   error: false,
   loading: false,
   message: '',

@@ -6,8 +6,8 @@ import LoginForm from '../molecules/forms/LoginForm'
 import { api } from '../../api/api'
 import { paths } from '../../routes'
 import type { ApiResponse } from '../../types'
-import { SaveItem } from '../../utils/storage'
 import { useApiRequest } from '../../hooks/useApi'
+import { storageManager } from '../../utils/storage'
 import { loginSuccess } from '../../services/auth.slice'
 import type { Payload } from '../../services/auth.types'
 
@@ -26,7 +26,9 @@ export default function LoginTemplate() {
       const { payload, message } = result
       dispatch(loginSuccess({ message, success: true, ...payload }))
 
-      SaveItem<Payload>({ newItem: { ...payload, message, success: true } })
+      storageManager.setItem<Payload>({
+        newItem: { ...payload, message, success: true },
+      })
       navigate(paths.home)
     }
 
