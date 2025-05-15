@@ -1,7 +1,9 @@
 import axios, { type AxiosInstance } from 'axios'
 
-const BASE_URL_CONST = 'http://localhost:8550'
-const TIMEOUT_CONST = 18000
+import {
+  BASE_URL_CONST,
+  TIMEOUT_CONST,
+} from '../utils/constants/axios.constant'
 
 const configAxios = (): AxiosInstance => {
   const axiosInstance = axios.create({
