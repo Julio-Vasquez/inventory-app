@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react'
 import type { AxiosInstance, AxiosRequestConfig } from 'axios'
-import { Axios } from '../api/api.config'
+import { Axios } from '../api/axios.config'
 
 interface ApiState<T> {
   loading: boolean

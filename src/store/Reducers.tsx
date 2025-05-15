@@ -1,6 +1,6 @@
 import { combineReducers, type Action } from '@reduxjs/toolkit'
 
-import { AUTH } from '../utils/constants/redux.constant'
+import { AUTH, LOGOUT } from '../utils/constants/redux.constant'
 
 import authReducer, {
   initialState as initialStateAuth,
@@ -10,15 +10,13 @@ const appReducer = combineReducers({
   [AUTH]: authReducer,
 })
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const rootReducer = (state: any, action: Action) => {
-  if (action.type === 'auth/logout')
-    state = {
-      [AUTH]: initialStateAuth,
-    }
+export type RootState = ReturnType<typeof appReducer>
+
+const rootReducer = (state: RootState | undefined, action: Action) => {
+  if (action.type === LOGOUT)
+    return appReducer({ [AUTH]: initialStateAuth }, action)
+
   return appReducer(state, action)
 }
-
-export type RootState = ReturnType<typeof appReducer>
 
 export default rootReducer
