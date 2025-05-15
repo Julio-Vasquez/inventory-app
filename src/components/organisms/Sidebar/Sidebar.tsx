@@ -1,7 +1,7 @@
 import Text from '../../atoms/Text'
 import SidebarItem from '../../molecules/SidebarItem'
 
-import { paths } from '../../../routes'
+import { PRIVATE_PATHS } from '../../../utils/constants/routes.constant'
 
 import './style.css'
 
@@ -12,7 +12,7 @@ export default function Sidebar() {
         <Text>Group Company</Text>
       </div>
       <SidebarItem icon="🏠" label="DASHBOARD" active link="/" />
-      {Object.entries(paths).map(e => (
+      {Object.entries(PRIVATE_PATHS).map(e => (
         <SidebarItem
           key={e[0]}
           icon="🏠"
