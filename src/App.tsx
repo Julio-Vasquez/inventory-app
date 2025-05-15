@@ -1,18 +1,14 @@
-import { useSelector } from 'react-redux'
 import { RouterProvider } from 'react-router'
 
 import DashboardLayout from './layout/DashboardLayout'
 
-import type { RootState } from './store/Reducers'
+import { useAuth } from './hooks/useAuth'
 import { privateRouter, publicRouter } from './routes'
-import { AUTH } from './utils/constants/redux.constant'
 
 const App = () => {
-  const { authentication: auth } = useSelector(
-    (state: RootState) => state[AUTH]
-  )
+  const { isAuth } = useAuth()
 
-  return !auth ? (
+  return !isAuth ? (
     <RouterProvider router={publicRouter} />
   ) : (
     <DashboardLayout>
