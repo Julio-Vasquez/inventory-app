@@ -1,5 +1,6 @@
 import axios, { type AxiosInstance } from 'axios'
 
+import { authStore } from '../utils/storage'
 import {
   BASE_URL_CONST,
   TIMEOUT_CONST,
@@ -7,10 +8,8 @@ import {
 
 const setupRequestInterceptor = (instance: AxiosInstance): void => {
   instance.interceptors.request.use(config => {
-    // Optionally inject token or headers
-    // const token = getTokenFromStorage()
-    // if (token) config.headers.Authorization = `Bearer ${token}`
-
+    const token = authStore.getStoredToken()
+    if (token) config.headers.Authorization = `Bearer ${token}`
     return config
   })
 }
