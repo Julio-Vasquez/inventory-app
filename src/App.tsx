@@ -6,7 +6,7 @@ import { Suspense } from 'react'
 
 const App = () => (
   <AppProvider>
-    <Suspense fallback={<p>cargabndo</p>}>
+    <Suspense fallback={<p>cargando</p>}>
       <RouterProvider router={appRouter} />
     </Suspense>
   </AppProvider>

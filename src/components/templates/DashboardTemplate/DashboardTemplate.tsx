@@ -1,7 +1,8 @@
-import type { ReactNode } from 'react'
+import { type ReactNode } from 'react'
 
-import Sidebar from '../../organisms/Sidebar'
 import Topbar from '../../molecules/Topbar'
+import Sidebar from '../../organisms/Sidebar'
+import { useCompanyInitializer } from '../../../hooks/useCompanyInitializer'
 
 import './style.css'
 
@@ -10,6 +11,8 @@ type DashboardProps = {
 }
 
 export default function DashboardTemplate({ children }: DashboardProps) {
+  useCompanyInitializer()
+
   return (
     <div className="dashboard-layout">
       <Sidebar />

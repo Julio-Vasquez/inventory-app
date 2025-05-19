@@ -1,12 +1,17 @@
 import useSWR from 'swr'
 
 import { api } from '../api/api'
+import type { ApiResponse } from '../types'
 import { swrFetcher } from '../utils/fetcher'
+import type { Company } from '../providers/company'
 
 export const useCompanies = () => {
-  const { data, error, isLoading, isValidating, mutate } = useSWR(
-    api.companies.allCompanies,
-    swrFetcher
-  )
-  return { data, error, isLoading, isValidating, mutate }
+  const {
+    data: companies,
+    error,
+    isLoading,
+    mutate: refetch,
+  } = useSWR<ApiResponse<Company[]>>(api.companies.allCompanies, swrFetcher)
+
+  return { isLoading, error, refetch, companies }
 }

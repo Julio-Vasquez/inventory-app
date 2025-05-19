@@ -1,11 +1,14 @@
 import { Outlet } from 'react-router'
 
 import DashboardTemplate from '../components/templates/DashboardTemplate'
+import { CompanyProvider } from '../providers/company'
 
 export default function DashboardLayout() {
   return (
-    <DashboardTemplate>
-      <Outlet />
-    </DashboardTemplate>
+    <CompanyProvider>
+      <DashboardTemplate>
+        <Outlet />
+      </DashboardTemplate>
+    </CompanyProvider>
   )
 }
