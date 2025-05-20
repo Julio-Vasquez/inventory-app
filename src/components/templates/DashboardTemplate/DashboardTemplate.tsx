@@ -1,3 +1,4 @@
+import { Layout } from 'antd'
 import { type ReactNode } from 'react'
 
 import Topbar from '../../molecules/Topbar'
@@ -10,16 +11,23 @@ type DashboardProps = {
   children: ReactNode
 }
 
+const { Content, Footer } = Layout
+
 export default function DashboardTemplate({ children }: DashboardProps) {
   useCompanyInitializer()
 
   return (
-    <div className="dashboard-layout">
-      <Sidebar />
-      <div className="container">
-        <Topbar />
-        <div className="content">{children}</div>
-      </div>
-    </div>
+    <Layout className="dashboard-layout">
+      <Topbar />
+      <Layout>
+        <Sidebar />
+        <Layout className="container">
+          <Content className="content">{children}</Content>
+          <Footer className="footer">
+            © {new Date().getFullYear()} — Construido con ❤️ usando Ant Design
+          </Footer>
+        </Layout>
+      </Layout>
+    </Layout>
   )
 }

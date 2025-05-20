@@ -14,7 +14,6 @@ export class AuthStore {
   /** Previously named: getToken */
   getStoredToken(): string {
     const data = this.storage.getRawItem({ key: JWT_KEY })
-    console.log(data)
     if (!data) return ''
     const { token } = JSON.parse(data)
     return token

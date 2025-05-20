@@ -2,16 +2,13 @@
 
 .topbar {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
   padding: 1rem;
-  gap: 8px;
+  gap: 1rem;
 
-  &_action {
-    background-color: var(--color-primary);
+  .topbar-title {
     color: var(--color-white);
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
+    font-size: var(--font-size-title);
   }
 }

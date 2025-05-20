@@ -1,8 +1,8 @@
 import { useMemo, useReducer } from 'react'
 
 import { CompanyContext } from './context'
-import { initialState, companyReducer } from './reducer'
 import type { CompanyProviderProps } from './types'
+import { initialState, companyReducer } from './reducer'
 
 export const CompanyProvider = ({ children, values }: CompanyProviderProps) => {
   const [state, dispatch] = useReducer(companyReducer, {

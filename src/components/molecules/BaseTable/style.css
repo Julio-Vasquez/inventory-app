@@ -1,0 +1,9 @@
+.base-table {
+  width: 100%;
+
+  .actions {
+    display: flex;
+    margin-bottom: 16px;
+    justify-content: end;
+  }
+}

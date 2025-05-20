@@ -1,6 +1,6 @@
 import LoginForm from '../molecules/forms/LoginForm'
 
-import { useLogin } from '../../hooks/useLogin'
+import { useLogin } from '../../hooks/api/useLogin'
 
 export default function LoginTemplate() {
   const { handleLogin } = useLogin()

@@ -1,29 +1,21 @@
-import { useDispatch } from 'react-redux'
+import { Layout } from 'antd'
 
-import Avatar from '../../atoms/Avatar'
-
-import user from '../../../assets/img/user.png'
+import Text from '../../atoms/Text'
+import { UserAvatarMenu } from '../UserAvatarMenu'
+import { CompanySelect } from '../CompanySelect/CompanySelect'
 
 import './style.css'
-import { logout } from '../../../services/auth.slice'
-import { storageManager } from '../../../utils/storage'
+
+const { Header } = Layout
 
 export default function Topbar() {
-  const dispatch = useDispatch()
-
-  const handleClick = () => {
-    dispatch(logout())
-    storageManager.clearAll()
-  }
-
   return (
-    <div className="topbar">
-      <span>🔔</span>
-      <Avatar src={user} />
-
-      <button className="topbar_action" onClick={handleClick}>
-        U
-      </button>
-    </div>
+    <Header className="topbar">
+      <div className="topbar-title">
+        <Text>Group Company</Text>
+      </div>
+      <CompanySelect />
+      <UserAvatarMenu />
+    </Header>
   )
 }

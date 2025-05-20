@@ -1,14 +1,13 @@
 import { useEffect } from 'react'
 
-import { useCompanies } from './useCompanies'
+import { useCompanies } from './api/useCompanies'
 import { CompanyActions } from '../providers/company'
 import { useCompanyContext } from './useCompanyContext'
 
 export const useCompanyInitializer = () => {
   const { dispatch } = useCompanyContext()
-  const { companies, error } = useCompanies()
+  const { companies } = useCompanies()
 
-  console.log('%cCOMPANIES FETCH', 'COLOR=#f51', { companies, error })
   useEffect(() => {
     if (!companies || companies.status === 'error') return
 

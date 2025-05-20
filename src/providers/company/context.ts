@@ -1,7 +1,7 @@
 import { createContext } from 'react'
 
-import type { CompanyAction } from './types'
 import { initialState } from './reducer'
+import type { CompanyAction } from './types'
 
 export const CompanyContext = createContext<CompanyAction | undefined>(
   initialState

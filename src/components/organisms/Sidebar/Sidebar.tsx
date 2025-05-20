@@ -1,25 +1,22 @@
-import Text from '../../atoms/Text'
-import SidebarItem from '../../molecules/SidebarItem'
+import { Layout, Menu } from 'antd'
+import { Link } from 'react-router'
 
 import { PRIVATE_PATHS } from '../../../utils/constants/routes.constant'
 
 import './style.css'
 
+const { Sider } = Layout
+
 export default function Sidebar() {
+  const items = Object.entries(PRIVATE_PATHS).map(route => ({
+    key: route[0],
+    icon: '🏠',
+    label: <Link to={route[1]}>{route[0].toUpperCase()}</Link>,
+  }))
+
   return (
-    <aside className="sidebar">
-      <div className="sidebar_title">
-        <Text>Group Company</Text>
-      </div>
-      <SidebarItem icon="🏠" label="DASHBOARD" active link="/" />
-      {Object.entries(PRIVATE_PATHS).map(e => (
-        <SidebarItem
-          key={e[0]}
-          icon="🏠"
-          label={e[0].toUpperCase()}
-          link={e[1]}
-        />
-      ))}
-    </aside>
+    <Sider className="sidebar">
+      <Menu className="sidebar_menu" mode="inline" items={items} />
+    </Sider>
   )
 }
